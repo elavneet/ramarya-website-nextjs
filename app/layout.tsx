@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,12 +13,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ramarya.com"),
-  title: {
-    default: "Ramarya - Product Engineering & Applied AI",
-    template: "Ramarya - %s",
-  },
+  title: "Ramarya - Product Engineering & Applied AI",
   description:
-    "Ramarya Consultancy builds modern web and mobile products, retrieval-augmented intelligence, and custom Model Context Protocol (MCP) agents that help $100M+ organisations act on their data in real time.",
+    "Ramarya builds modern web and mobile products, AI agents, and retrieval-augmented systems for $100M+ organisations.",
   keywords: [
     "Ramarya Consultancy",
     "product engineering studio",
@@ -45,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ramarya Consultancy - Product Engineering & Applied AI",
     description:
-      "We combine youthful execution with 20+ years of leadership to launch resilient digital products, RAG systems, and custom AI agents.",
+      "Youthful execution with 20+ years of leadership to launch resilient products, RAG systems, and custom AI agents.",
   },
   icons: {
     icon: [
@@ -60,6 +58,24 @@ export const metadata: Metadata = {
         type: "image/png",
       },
     ],
+    apple: [
+      {
+        url: "https://ramarya.com/wp-content/uploads/2023/04/cropped-ramarya-icon-180x180.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -70,6 +86,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <StructuredData />
+      </head>
       <body className="antialiased bg-white text-gray-900">
         <Header />
         <main className="min-h-screen">{children}</main>

@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { projects } from '@/data/portfolio';
+import { clients } from '@/data/clients';
 import ProjectCard from '@/components/ProjectCard';
 
 export const metadata: Metadata = {
-  title: 'Ramarya - Digital Product Engineering & Applied AI Experts',
+  title: 'Home',
   description:
-    'Ramarya Consultancy ships revenue-driving web apps, React Native experiences, data platforms, and retrieval-augmented AI agents backed by Model Context Protocol (MCP).',
+    'Ramarya ships revenue-driving web apps, React Native experiences, data platforms, and AI agents backed by Model Context Protocol.',
   openGraph: {
-    title: 'Digital Product Engineering & Applied AI Experts',
+    title: 'Product Engineering & Applied AI | Ramarya',
     description:
-      'Build resilient platforms and intelligent assistants with Ramarya Consultancy — the team behind ScoutIQ, VBNotes, and custom MCP-powered agents.',
+      'Build resilient platforms and intelligent assistants with Ramarya — the team behind ScoutIQ, VBNotes, and custom MCP-powered agents.',
   },
 };
 
@@ -99,55 +100,22 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-7 gap-6 items-center">
-            <div className="flex items-center justify-center p-5 bg-white/40 rounded-xl grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 shadow-sm">
-              <img
-                src="/assets/clients/beaconsunited.com.png"
-                alt="Beacons United"
-                className="max-h-16 md:max-h-20 w-auto object-contain"
-              />
-            </div>
-            <div className="flex items-center justify-center p-5 bg-white/40 rounded-xl grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 shadow-sm">
-              <img
-                src="/assets/clients/hocrox.com.png"
-                alt="Hocrox"
-                className="max-h-16 md:max-h-20 w-auto object-contain"
-              />
-            </div>
-            <div className="flex items-center justify-center p-5 bg-white/40 rounded-xl grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 shadow-sm">
-              <img
-                src="/assets/clients/hushread.com.png"
-                alt="Hushread"
-                className="max-h-16 md:max-h-20 w-auto object-contain"
-              />
-            </div>
-            <div className="flex items-center justify-center p-5 bg-white/40 rounded-xl grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 shadow-sm">
-              <img
-                src="/assets/clients/pb35.com.png"
-                alt="PB35"
-                className="max-h-16 md:max-h-20 w-auto object-contain"
-              />
-            </div>
-            <div className="flex items-center justify-center p-5 bg-white/40 rounded-xl grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 shadow-sm">
-              <img
-                src="/assets/clients/promo.ly_.png"
-                alt="Promo.ly"
-                className="max-h-16 md:max-h-20 w-auto object-contain"
-              />
-            </div>
-            <div className="flex items-center justify-center p-5 bg-white/40 rounded-xl grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 shadow-sm">
-              <img
-                src="/assets/clients/scoutiq.png"
-                alt="ScoutIQ"
-                className="max-h-16 md:max-h-20 w-auto object-contain"
-              />
-            </div>
-            <div className="flex items-center justify-center p-5 bg-white/40 rounded-xl grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 shadow-sm">
-              <img
-                src="/assets/clients/threecolts.png"
-                alt="ThreeColts"
-                className="max-h-16 md:max-h-20 w-auto object-contain"
-              />
-            </div>
+            {clients.map((client) => (
+              <a
+                key={client.name}
+                href={client.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={client.description}
+                className="flex items-center justify-center p-5 bg-white/40 rounded-xl grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 shadow-sm"
+              >
+                <img
+                  src={client.logo}
+                  alt={`${client.name} - ${client.description}`}
+                  className="max-h-16 md:max-h-20 w-auto object-contain"
+                />
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -180,7 +148,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Custom AI Agents</h3>
+              <p className="text-xl font-semibold mb-3 text-gray-900">Custom AI Agents</p>
               <p className="text-gray-600">
                 MCP-driven assistants that let non-technical teammates query live databases, systems, or codebases safely and naturally.
               </p>
@@ -192,7 +160,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">RAG & Knowledge Platforms</h3>
+              <p className="text-xl font-semibold mb-3 text-gray-900">RAG & Knowledge Platforms</p>
               <p className="text-gray-600">
                 Retrieval-augmented pipelines that index documents, tickets, and data warehouses to deliver trustworthy answers in seconds.
               </p>
@@ -204,7 +172,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Full-Stack Product Engineering</h3>
+              <p className="text-xl font-semibold mb-3 text-gray-900">Full-Stack Product Engineering</p>
               <p className="text-gray-600">
                 Web, mobile, and API platforms that scale—from consumer marketplaces to revenue intelligence dashboards.
               </p>
@@ -216,7 +184,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Data Infrastructure & Automation</h3>
+              <p className="text-xl font-semibold mb-3 text-gray-900">Data Infrastructure & Automation</p>
               <p className="text-gray-600">
                 ETL, event streaming, and workflow automation so models and operators share a single source of truth.
               </p>
@@ -228,7 +196,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Responsible AI Operations</h3>
+              <p className="text-xl font-semibold mb-3 text-gray-900">Responsible AI Operations</p>
               <p className="text-gray-600">
                 Guardrails, evaluation, monitoring, and compliance frameworks that keep AI deployments secure and auditable.
               </p>
@@ -240,7 +208,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Product & AI Advisory</h3>
+              <p className="text-xl font-semibold mb-3 text-gray-900">Product & AI Advisory</p>
               <p className="text-gray-600">
                 Strategy sprints that align stakeholders, surface the highest ROI automation ideas, and chart build-measure-learn loops.
               </p>
@@ -271,7 +239,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900">Context Discovery & Data Mapping</h3>
+                    <p className="text-xl font-semibold mb-3 text-gray-900">Context Discovery & Data Mapping</p>
                     <p className="text-gray-600">
                       We audit your workflows, data exhaust, and success metrics to define high-value agent behaviors, RAG sources, and product opportunities.
                     </p>
@@ -285,7 +253,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900">Rapid Prototypes & Evaluation Loops</h3>
+                    <p className="text-xl font-semibold mb-3 text-gray-900">Rapid Prototypes & Evaluation Loops</p>
                     <p className="text-gray-600">
                       We stand up pilots—LLM agents, dashboards, or apps—instrumented with evals so stakeholders see impact in days, not quarters.
                     </p>
@@ -299,7 +267,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900">Scale, Operate, and Transfer</h3>
+                    <p className="text-xl font-semibold mb-3 text-gray-900">Scale, Operate, and Transfer</p>
                     <p className="text-gray-600">
                       We harden for production with observability, governance, and playbooks—then upskill your teams so they can iterate independently.
                     </p>
@@ -379,19 +347,19 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Frequently Asked Questions</h2>
           <div className="space-y-6">
             <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">How do you approach new engagements?</h3>
+              <p className="text-lg font-semibold text-gray-900 mb-2">How do you approach new engagements?</p>
               <p className="text-gray-700">
                 We start with a short discovery sprint to prioritise goals, data sources, and success metrics. From there we deliver a roadmap covering product milestones, retrieval-augmented knowledge needs, and any custom MCP tooling required.
               </p>
             </div>
             <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Can you integrate with our existing stack?</h3>
+              <p className="text-lg font-semibold text-gray-900 mb-2">Can you integrate with our existing stack?</p>
               <p className="text-gray-700">
                 Yes. We routinely work with PostgreSQL, DynamoDB, Salesforce, HubSpot, and internal APIs—exposing them through secure connectors so AI agents and product teams consume the same trusted source of truth.
               </p>
             </div>
             <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">How quickly can we see a prototype?</h3>
+              <p className="text-lg font-semibold text-gray-900 mb-2">How quickly can we see a prototype?</p>
               <p className="text-gray-700">
                 Most partners see a working slice—whether it&apos;s a React app, RAG knowledge base, or MCP-powered agent—within the first two weeks. We iterate in public demos so stakeholders can test and steer delivery.
               </p>

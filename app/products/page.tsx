@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { products } from '@/data/products';
 
 export const metadata: Metadata = {
-  title: 'Ramarya - Products',
+  title: 'Products',
   description:
-    'Explore Ramarya Consultancy products including VBNotes, ScoutIQ tooling, and bespoke analytics apps that blend modern UX with retrieval-augmented intelligence.',
+    'Explore Ramarya products including VBNotes, ScoutIQ tooling, and analytics apps that blend modern UX with retrieval-augmented intelligence.',
   openGraph: {
-    title: 'Ramarya Consultancy Products',
+    title: 'Products | Ramarya',
     description:
-      'Discover VBNotes and other Ramarya Consultancy products designed for researchers, operators, and revenue teams, built with Next.js, React Native, and applied AI.',
+      'Discover VBNotes and other Ramarya products designed for researchers, operators, and revenue teams, built with Next.js, React Native, and applied AI.',
   },
 };
 
