@@ -94,7 +94,7 @@ export default function Home() {
               Trusted by Industry Leaders
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're proud to partner with innovative companies worldwide
+              We&apos;re proud to partner with innovative companies worldwide
             </p>
           </div>
 

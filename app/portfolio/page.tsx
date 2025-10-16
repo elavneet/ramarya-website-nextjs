@@ -23,8 +23,8 @@ export default function Portfolio() {
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Portfolio</h1>
               <p className="text-xl text-indigo-100">
-                Explore web platforms, revenue tools, and AI-enabled products we&apos;ve delivered for teams across commerce, edtech, and operations
-              </p>
+              Explore web platforms, revenue tools, and AI-enabled products we&apos;ve delivered for teams across commerce, edtech, and operations
+            </p>
             </div>
             <div className="hidden lg:block">
               <img
@@ -110,7 +110,7 @@ export default function Portfolio() {
             Ready to Start Your Project?
           </h2>
           <p className="text-xl mb-6 text-indigo-100 max-w-2xl mx-auto">
-            Let's build something amazing together. Contact us to discuss your next project.
+            Let&apos;s build something amazing together. Contact us to discuss your next project.
           </p>
           <a
             href="/contact"

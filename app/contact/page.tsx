@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function Contact() {
+function ContactForm() {
   const searchParams = useSearchParams();
   const jobParam = searchParams?.get('job');
 
@@ -58,7 +58,10 @@ export default function Contact() {
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch (
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      error
+    ) {
       setStatus('error');
     }
   };
@@ -206,7 +209,7 @@ export default function Contact() {
 
                 {status === 'success' && (
                   <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
-                    Thank you! Your message has been sent successfully. We'll get back to you soon.
+                    Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.
                   </div>
                 )}
 
@@ -310,5 +313,13 @@ export default function Contact() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function Contact() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="text-gray-600">Loading...</div></div>}>
+      <ContactForm />
+    </Suspense>
   );
 }

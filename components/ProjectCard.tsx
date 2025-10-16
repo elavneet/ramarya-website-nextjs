@@ -5,10 +5,9 @@ import type { Project } from '@/data/portfolio';
 
 interface ProjectCardProps {
   project: Project;
-  showMoreInfo?: boolean;
 }
 
-export default function ProjectCard({ project, showMoreInfo = false }: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   const [imageError, setImageError] = useState(false);
 
   return (

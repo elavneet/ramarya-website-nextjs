@@ -4,17 +4,18 @@ import { notFound } from 'next/navigation';
 import { products } from '@/data/products';
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     productId: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
   return products.map((product) => ({ productId: product.id }));
 }
 
-export function generateMetadata({ params }: ProductPageProps): Metadata {
-  const product = products.find((item) => item.id === params.productId);
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  const { productId } = await params;
+  const product = products.find((item) => item.id === productId);
 
   if (!product) {
     return {
@@ -33,8 +34,9 @@ export function generateMetadata({ params }: ProductPageProps): Metadata {
   };
 }
 
-export default function ProductDetailPage({ params }: ProductPageProps) {
-  const product = products.find((item) => item.id === params.productId);
+export default async function ProductDetailPage({ params }: ProductPageProps) {
+  const { productId } = await params;
+  const product = products.find((item) => item.id === productId);
 
   if (!product) {
     notFound();
