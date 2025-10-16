@@ -5,7 +5,6 @@ import { clients } from '@/data/clients';
 import ProjectCard from '@/components/ProjectCard';
 
 export const metadata: Metadata = {
-  title: 'Home',
   description:
     'Ramarya ships revenue-driving web apps, React Native experiences, data platforms, and AI agents backed by Model Context Protocol.',
   openGraph: {
